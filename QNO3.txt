@@ -1,0 +1,14 @@
+void printTotalEarnings()
+{
+	int i = 0;
+	printf ("EXECUTIVES\t\tALLOWANCE\t\tEARNINGS\t\tTOTAL\n");
+	for(i=0;i<5;i++)
+	{
+		if (delcount[i] > 0)
+		{
+			printf ("DE%d\t\t\t10\t\t%d\t\t%d",i+1,(50+((delcount[i]-1) * 5)),(60+((delcount[i]-1) * 5)));
+			printf("\n");
+		}
+	}
+}
+

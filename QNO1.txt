@@ -1,0 +1,41 @@
+struct Data{
+int cid;	// Customer ID
+char *source;	// Restaurant
+char *dest;	// Destination point
+char *time;	// Time order was placed
+int did;	// Delivery agent assigned to this order
+
+};
+struct Data src[10];
+int reccount=0;
+
+
+void TohandleBooking(){
+FILE *fp;
+char input[30][100],*token,*token1;
+int j=0,cid[30];
+fp=fopen("input.txt","r");
+if(fp==NULL)
+{
+printf("File empty\n");
+exit(0);
+}
+// Read file one record at a time, split into fields and store in memory
+while(!feof(fp))
+{
+fgets(input[j],100,fp);
+token=strtok(input[j],",");
+src[j].cid=token[0]-48;
+token1=strtok(NULL,"\n");
+token=strtok(token1,",");
+src[j].source=token;
+token1=strtok(NULL,"\n");
+token=strtok(token1,",");
+src[j].dest=token;
+token1=strtok(NULL,"\n");
+src[j].time=token1;
+src[j].did=-1;
+j++;
+reccount++;	// to keep count of records in file
+}
+}
